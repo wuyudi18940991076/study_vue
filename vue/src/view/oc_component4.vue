@@ -1,32 +1,30 @@
 <template>
   <div class="myMenu">
-    <head-list></head-list>
+    <div class="logo">
+      <el-image :src="url"></el-image>
+    </div>
+    <el-tabs v-model="activeName" @tab-click="handleClick">
+      <el-tab-pane v-for="(item, index) in navList" :key="index" :label="item.text" :name="item.name">
+        <span slot="label">
+          <el-badge :is-dot="item.dotTrue" class="item">{{ item.text }}</el-badge>
+        </span>
+      </el-tab-pane>
+    </el-tabs>
+    <el-menu :default-active="activeIndex2" class="el-menu-demo" mode="horizontal" @select="handleSelect" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+      <el-submenu index="2">
+        <template slot="title">
+          <span><i class="myIcon"></i>상담원명</span>
+        </template>
+        <el-menu-item index="2-1">개인정보설정</el-menu-item>
+        <el-menu-item index="2-2">로그아웃</el-menu-item>
+      </el-submenu>
+    </el-menu>
   </div>
 </template>
 <script>
-var Head = {
+export default {
+  name: 'header',
   props: { 'message': String },
-  template: `<div>
-            <div class="logo">
-              <el-image :src="url"></el-image>
-            </div>
-            <el-tabs v-model="activeName" @tab-click="handleClick">
-              <el-tab-pane v-for="(item, index) in navList" :key="index" :label="item.text" :name="item.name">
-                <span slot="label">
-                  <el-badge :is-dot="item.dotTrue" class="item">{{ item.text }}</el-badge>
-                </span>
-              </el-tab-pane>
-            </el-tabs>
-            <el-menu :default-active="activeIndex2" class="el-menu-demo" mode="horizontal" @select="handleSelect" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
-              <el-submenu index="2">
-                <template slot="title">
-                  <span><i class="myIcon"></i>상담원명</span>
-                </template>
-                <el-menu-item index="2-1">개인정보설정</el-menu-item>
-                <el-menu-item index="2-2">로그아웃</el-menu-item>
-              </el-submenu>
-            </el-menu>
-            </div>`,
   data () {
     return {
       activeName: '2',
@@ -129,107 +127,6 @@ var Head = {
     handleSelect (key, keyPath) {
       console.log(key, keyPath)
     }
-  }
-}
-export default {
-  name: 'oc_component2',
-  data () {
-    return {
-      // valueText: '<span>lalalal</span>lalalal',
-      // activeName: '2',
-      // src: '../assets/images/ic-logo-toast-contact.svg',
-      // navList: [
-      //   {
-      //     text: '엔에이치엔 엔터테인먼트',
-      //     name: '1',
-      //     dotTrue: 1
-      //   },
-      //   {
-      //     text: '엔에이치엔 엔터테인먼트',
-      //     name: '2',
-      //     dotTrue: 1
-      //   },
-      //   {
-      //     text: '엔에이치엔 엔터테인먼트',
-      //     name: '3',
-      //     dotTrue: false
-      //   },
-      //   {
-      //     text: '엔에이치엔 엔터테인먼트',
-      //     name: '4',
-      //     dotTrue: 1
-      //   },
-      //   {
-      //     text: '크루쉐이더 퀘스트',
-      //     name: '5',
-      //     dotTrue: 0
-      //   }, {
-      //     text: '티켓링크',
-      //     name: '6',
-      //     dotTrue: 1
-      //   },
-      //   {
-      //     text: 'HANGAME',
-      //     name: '7',
-      //     dotTrue: 1
-      //   },
-      //   {
-      //     text: 'BUGS',
-      //     name: '8',
-      //     dotTrue: 0
-      //   },
-      //   {
-      //     text: 'TOAST',
-      //     name: '9',
-      //     dotTrue: 0
-      //   },
-      //   {
-      //     text: 'PAYCO',
-      //     name: '10',
-      //     dotTrue: true
-      //   },
-      //   {
-      //     text: '프렌즈팝',
-      //     name: '11',
-      //     dotTrue: 0
-      //   }, {
-      //     text: 'C-QUEST',
-      //     name: '12',
-      //     dotTrue: 0
-      //   },
-      //   {
-      //     text: 'HANGAME',
-      //     name: '13',
-      //     dotTrue: 1
-      //   },
-      //   {
-      //     text: '티켓링크',
-      //     name: '14',
-      //     dotTrue: 0
-      //   },
-      //   {
-      //     text: '크루쉐이더 퀘스트',
-      //     name: '15',
-      //     dotTrue: 0
-      //   },
-      //   {
-      //     text: '크루쉐이더 퀘스트',
-      //     name: '16',
-      //     dotTrue: 0
-      //   }
-      // ],
-      // cities: [{
-      //   value: 'one',
-      //   label: '개인정보설정'
-      // }, {
-      //   value: 'two',
-      //   label: '로그아웃'
-      // }],
-      // value: ''
-    }
-  },
-  components: {
-    'head-list': Head
   }
 }
 </script>

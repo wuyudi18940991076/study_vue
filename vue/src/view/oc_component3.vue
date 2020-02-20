@@ -1,7 +1,7 @@
 <template>
   <div class="myMenu">
     <div class="logo">
-      <el-image :src="require('../assets/images/ic-logo-toast-contact.svg')"></el-image>
+      <el-image :src="url"></el-image>
     </div>
     <el-tabs v-model="activeName" @tab-click="handleClick">
       <el-tab-pane v-for="(item, index) in navList" :key="index" :label="item.text" :name="item.name">
@@ -28,7 +28,7 @@ export default {
     return {
       activeName: '2',
       activeIndex2: '1',
-      src: '../assets/images/ic-logo-toast-contact.svg',
+      url: require('../assets/images/ic-logo-toast-contact.svg'),
       navList: [
         {
           text: '엔에이치엔 엔터테인먼트',

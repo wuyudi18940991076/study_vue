@@ -22,8 +22,7 @@ var Child = {
                 </div>
               </li>
               <p class="add">总共：{{num}}</p>
-            </ul>
-            `,
+            </ul>`,
   data () {
     return {
       num: [],
