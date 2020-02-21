@@ -4,7 +4,8 @@ import HelloWorld from '@/view/HelloWorld.vue'
 import ocComponent from '@/view/oc_component.vue'
 import ocComponent2 from '@/view/oc_component2.vue'
 import ocComponent3 from '@/view/oc_component3.vue'
-
+import header from '@/components/header.vue'
+import menu from '@/components/menu.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -29,6 +30,16 @@ export default new Router({
       path: '/ocComponent3',
       name: 'ocComponent3',
       component: ocComponent3
+    },
+    {
+      path: '/header',
+      name: 'header',
+      component: header
+    },
+    {
+      path: '/menu',
+      name: 'menu',
+      component: menu
     }
   ]
 })
