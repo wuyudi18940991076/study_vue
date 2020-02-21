@@ -15,7 +15,7 @@
       <el-submenu index="4">
         <template slot="title">
           <i class="my-icon-faq"></i>
-          <span slot="title">导航er</span>
+          <span slot="title">채팅</span>
         </template>
         <el-menu-item-group>
           <el-tabs :tab-position="tabPosition" style="height: 200px;">
@@ -29,7 +29,7 @@
       <el-submenu index="5">
         <template slot="title">
           <i class="my-icon-ticket"></i>
-          <span slot="title">导航er</span>
+          <span slot="title">티켓 관리</span>
         </template>
         <el-menu-item-group>
           <el-tabs :tab-position="tabPosition" style="height: 200px;">
@@ -43,7 +43,7 @@
       <el-submenu index="6">
         <template slot="title">
           <i class="my-icon-help"></i>
-          <span slot="title">导航er</span>
+          <span slot="title">헬프센터</span>
         </template>
         <el-menu-item-group>
           <el-tabs :tab-position="tabPosition" style="height: 200px;">
@@ -57,7 +57,7 @@
       <el-submenu index="7">
         <template slot="title">
           <i class="my-icon-report"></i>
-          <span slot="title">导航er</span>
+          <span slot="title">통계</span>
         </template>
         <el-menu-item-group>
           <el-tabs :tab-position="tabPosition" style="height: 200px;">
@@ -71,7 +71,7 @@
       <el-submenu index="8">
         <template slot="title">
           <i class="my-icon-setting-se"></i>
-          <span slot="title">导航er</span>
+          <span slot="title">서비스 설정</span>
         </template>
         <el-menu-item-group>
           <el-tabs :tab-position="tabPosition" style="height: 200px;">
@@ -85,7 +85,7 @@
       <el-submenu index="9">
         <template slot="title">
           <i class="my-icon-setting"></i>
-          <span slot="title">导航er</span>
+          <span slot="title">전체 설정</span>
         </template>
         <el-menu-item-group>
           <el-tabs :tab-position="tabPosition" style="height: 200px;">
