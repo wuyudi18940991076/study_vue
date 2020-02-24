@@ -5,6 +5,7 @@ import ocComponent from '@/view/oc_component.vue'
 import ocComponent2 from '@/view/oc_component2.vue'
 import ocComponent3 from '@/view/oc_component3.vue'
 import header from '@/components/header.vue'
+import allHead from '@/components/allHead.vue'
 import menu from '@/components/menu.vue'
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/menu',
       name: 'menu',
       component: menu
+    },
+    {
+      path: '/allHead',
+      name: 'allHead',
+      component: allHead
     }
   ]
 })

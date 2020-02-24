@@ -25,30 +25,24 @@
           </el-tabs>
         </el-menu-item-group>
       </el-submenu>
-      <el-radio-group v-model="isCollapse">
-        <el-radio-button></el-radio-button>
+      <el-radio-group>
+        <div class="have none" @click="trun"></div>
       </el-radio-group>
     </el-menu>
   </div>
 </template>
 <style>
-.el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 200px;
-  min-height: 400px;
-}
-.el-radio-button {
-  width: 46px !important;
-}
-.el-radio-button .el-radio-button__inner {
+.el-radio-group .have,
+.el-radio-group .none {
   position: relative;
   border-radius: 50%;
   background: #f4f4f4;
-  padding: 12px;
   width: 46px;
   height: 46px;
   text-align: center;
 }
-.el-radio-button .el-radio-button__inner::before {
+.el-radio-group .have::before,
+.el-radio-group .none::before {
   top: 50%;
   transform: translate(-50%, -50%);
   left: 50%;
@@ -60,17 +54,9 @@
   width: 20px;
   height: 20px;
 }
-.el-radio-button:last-child .el-radio-button__inner.haveNone::before {
-  top: 50%;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  content: "";
+.el-radio-group .none::before {
   background: url("../assets/images/ic-float-resize-right.svg") no-repeat center
     100%;
-  overflow: hidden;
-  position: absolute;
-  width: 20px;
-  height: 20px;
 }
 </style>
 
@@ -228,8 +214,8 @@ export default {
     handleClose (key, keyPath) {
       console.log(key, keyPath)
     },
-    open () {
-
+    trun () {
+      this.isCollapse = !this.isCollapse
     }
   }
 }
@@ -540,5 +526,8 @@ export default {
   background: rgba(0, 0, 0, 0.05);
   content: "";
   z-index: 1;
+}
+.el-tooltip__popper {
+  display: none !important;
 }
 </style>

@@ -23,7 +23,7 @@
 </template>
 <script>
 export default {
-  name: 'header',
+  name: 'myHeader',
   props: { 'message': String },
   data () {
     return {
