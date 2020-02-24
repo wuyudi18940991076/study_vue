@@ -5,107 +5,28 @@
         <i class="logoS"></i>
         <span class="logo_img" slot="title"><img :src="url" alt=""></span>
       </el-menu-item>
-      <el-menu-item index="2">
+      <el-menu-item index="2" popper-class=''>
         <span class="name_h2" slot="title">CS관리시스템</span>
       </el-menu-item>
       <el-menu-item index="3">
         <i class="my-icon-notice"></i>
         <span slot="title">공지사항</span>
       </el-menu-item>
-      <el-submenu index="4">
+      <el-submenu :index="index+1+''" v-for="(item,index) in menuList" :key="index">
         <template slot="title">
-          <i class="my-icon-faq"></i>
-          <span slot="title">채팅</span>
+          <i :class="item.itemClass"></i>
+          <span slot="title">{{item.title}}</span>
         </template>
         <el-menu-item-group>
           <el-tabs :tab-position="tabPosition" style="height: 200px;">
-            <el-tab-pane label="用户管理">用户管理</el-tab-pane>
-            <el-tab-pane label="配置管理">配置管理</el-tab-pane>
-            <el-tab-pane label="角色管理">角色管理</el-tab-pane>
-            <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
-          </el-tabs>
-        </el-menu-item-group>
-      </el-submenu>
-      <el-submenu index="5">
-        <template slot="title">
-          <i class="my-icon-ticket"></i>
-          <span slot="title">티켓 관리</span>
-        </template>
-        <el-menu-item-group>
-          <el-tabs :tab-position="tabPosition" style="height: 200px;">
-            <el-tab-pane label="用户管理">用户管理</el-tab-pane>
-            <el-tab-pane label="配置管理">配置管理</el-tab-pane>
-            <el-tab-pane label="角色管理">角色管理</el-tab-pane>
-            <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
-          </el-tabs>
-        </el-menu-item-group>
-      </el-submenu>
-      <el-submenu index="6">
-        <template slot="title">
-          <i class="my-icon-help"></i>
-          <span slot="title">헬프센터</span>
-        </template>
-        <el-menu-item-group>
-          <el-tabs :tab-position="tabPosition" style="height: 200px;">
-            <el-tab-pane label="用户管理">用户管理</el-tab-pane>
-            <el-tab-pane label="配置管理">配置管理</el-tab-pane>
-            <el-tab-pane label="角色管理">角色管理</el-tab-pane>
-            <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
-          </el-tabs>
-        </el-menu-item-group>
-      </el-submenu>
-      <el-submenu index="7">
-        <template slot="title">
-          <i class="my-icon-report"></i>
-          <span slot="title">통계</span>
-        </template>
-        <el-menu-item-group>
-          <el-tabs :tab-position="tabPosition" style="height: 200px;">
-            <el-tab-pane label="用户管理">用户管理</el-tab-pane>
-            <el-tab-pane label="配置管理">配置管理</el-tab-pane>
-            <el-tab-pane label="角色管理">角色管理</el-tab-pane>
-            <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
-          </el-tabs>
-        </el-menu-item-group>
-      </el-submenu>
-      <el-submenu index="8">
-        <template slot="title">
-          <i class="my-icon-setting-se"></i>
-          <span slot="title">서비스 설정</span>
-        </template>
-        <el-menu-item-group>
-          <el-tabs :tab-position="tabPosition" style="height: 200px;">
-            <el-tab-pane label="用户管理">用户管理</el-tab-pane>
-            <el-tab-pane label="配置管理">配置管理</el-tab-pane>
-            <el-tab-pane label="角色管理">角色管理</el-tab-pane>
-            <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
-          </el-tabs>
-        </el-menu-item-group>
-      </el-submenu>
-      <el-submenu index="9">
-        <template slot="title">
-          <i class="my-icon-setting"></i>
-          <span slot="title">전체 설정</span>
-        </template>
-        <el-menu-item-group>
-          <el-tabs :tab-position="tabPosition" style="height: 200px;">
-            <el-tab-pane label="서비스 설정" class="my-icon-setting-se">
-              <template slot="title" class="my-icon-setting-se">
-                <el-menu-item index="2">
-                  <i class="el-icon-menu"></i>
-                  <span slot="title">导航二</span>
-                </el-menu-item>
-              </template>
-              서비스 설정</el-tab-pane>
-            <el-tab-pane label="채팅 설정"><span class="my-icon-faq"></span>채팅 설정</el-tab-pane>
-            <el-tab-pane label="티켓 설정"><span class="my-icon-ticket"></span>티켓 설정</el-tab-pane>
-            <el-tab-pane label="헬프센터"><span class="my-icon-helpcenter"></span>헬프센터</el-tab-pane>
+            <el-tab-pane v-for="(list,index) in item.myList" :key="index">
+              <span slot="label"><i :class="list.listClass"></i>{{list.list1}}</span>
+            </el-tab-pane>
           </el-tabs>
         </el-menu-item-group>
       </el-submenu>
       <el-radio-group v-model="isCollapse">
-        <el-radio-button :label="false">开</el-radio-button>
-        <el-radio-button :label="true">收</el-radio-button>
+        <el-radio-button></el-radio-button>
       </el-radio-group>
     </el-menu>
   </div>
@@ -115,16 +36,189 @@
   width: 200px;
   min-height: 400px;
 }
+.el-radio-button {
+  width: 46px !important;
+}
+.el-radio-button .el-radio-button__inner {
+  position: relative;
+  border-radius: 50%;
+  background: #f4f4f4;
+  padding: 12px;
+  width: 46px;
+  height: 46px;
+  text-align: center;
+}
+.el-radio-button .el-radio-button__inner::before {
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  content: "";
+  background: url("../assets/images/ic-float-resize-left.svg") no-repeat center
+    100%;
+  overflow: hidden;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+.el-radio-button:last-child .el-radio-button__inner.haveNone::before {
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  content: "";
+  background: url("../assets/images/ic-float-resize-right.svg") no-repeat center
+    100%;
+  overflow: hidden;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
 </style>
 
 <script>
 export default {
+  name: 'myMenu',
+  props: { 'message': String },
   data () {
     return {
+      label: true,
       noUse: false,
       url: require('../assets/images/ic-logo-toast-contact.svg'),
       isCollapse: true,
-      tabPosition: 'right'
+      tabPosition: 'right',
+      menuList: [
+        {
+          title: '채팅',
+          itemClass: 'my-icon-faq',
+          myList: [
+            {
+              list1: '서비스 설정',
+              listClass: 'you-icon-setting-service'
+            },
+            {
+              list1: '채팅 설정',
+              listClass: 'you-icon-faq'
+            },
+            {
+              list1: '티켓 설정',
+              listClass: 'you-icon-ticket'
+            },
+            {
+              list1: '헬프센터',
+              listClass: 'you-icon-helpcenter'
+            }
+          ]
+        },
+        {
+          title: '티켓 관리',
+          itemClass: 'my-icon-ticket',
+          myList: [
+            {
+              list1: '서비스 설정',
+              listClass: 'you-icon-setting-service'
+            },
+            {
+              list1: '채팅 설정',
+              listClass: 'you-icon-faq'
+            },
+            {
+              list1: '티켓 설정',
+              listClass: 'you-icon-ticket'
+            },
+            {
+              list1: '헬프센터',
+              listClass: 'you-icon-helpcenter'
+            }
+          ]
+        },
+        {
+          title: '헬프센터',
+          itemClass: 'my-icon-help',
+          myList: [
+            {
+              list1: '서비스 설정',
+              listClass: 'you-icon-setting-service'
+            },
+            {
+              list1: '채팅 설정',
+              listClass: 'you-icon-faq'
+            },
+            {
+              list1: '티켓 설정',
+              listClass: 'you-icon-ticket'
+            },
+            {
+              list1: '헬프센터',
+              listClass: 'you-icon-helpcenter'
+            }
+          ]
+        },
+        {
+          title: '통계',
+          itemClass: 'my-icon-report',
+          myList: [
+            {
+              list1: '서비스 설정',
+              listClass: 'you-icon-setting-service'
+            },
+            {
+              list1: '채팅 설정',
+              listClass: 'you-icon-faq'
+            },
+            {
+              list1: '티켓 설정',
+              listClass: 'you-icon-ticket'
+            },
+            {
+              list1: '헬프센터',
+              listClass: 'you-icon-helpcenter'
+            }
+          ]
+        },
+        {
+          title: '서비스 설정',
+          itemClass: 'my-icon-setting-se',
+          myList: [
+            {
+              list1: '서비스 설정',
+              listClass: 'you-icon-setting-service'
+            },
+            {
+              list1: '채팅 설정',
+              listClass: 'you-icon-faq'
+            },
+            {
+              list1: '티켓 설정',
+              listClass: 'you-icon-ticket'
+            },
+            {
+              list1: '헬프센터',
+              listClass: 'you-icon-helpcenter'
+            }
+          ]
+        },
+        {
+          title: '전체 설정',
+          itemClass: 'my-icon-setting',
+          myList: [
+            {
+              list1: '서비스 설정',
+              listClass: 'you-icon-setting-service'
+            },
+            {
+              list1: '채팅 설정',
+              listClass: 'you-icon-faq'
+            },
+            {
+              list1: '티켓 설정',
+              listClass: 'you-icon-ticket'
+            },
+            {
+              list1: '헬프센터',
+              listClass: 'you-icon-helpcenter'
+            }
+          ]
+        }
+      ]
     }
   },
   methods: {
@@ -133,6 +227,9 @@ export default {
     },
     handleClose (key, keyPath) {
       console.log(key, keyPath)
+    },
+    open () {
+
     }
   }
 }
@@ -204,6 +301,7 @@ export default {
 .el-menu-vertical-demo:not(.el-menu--collapse) .el-menu-item:nth-child(2) {
   display: inline-block;
   padding-left: 30px !important;
+  margin: 16px 0 6px 0;
   height: 40px;
   line-height: 40px;
 }
@@ -223,6 +321,8 @@ export default {
 }
 .el-menu-item {
   padding: 0 30px;
+  height: 42px;
+  line-height: 42px;
 }
 .el-menu-vertical-demo:not(.el-menu--collapse) .el-menu-item {
   height: 42px;
@@ -252,6 +352,18 @@ export default {
   top: 50%;
   transform: translateY(-50%);
   height: 20px;
+}
+.el-submenu [class^="my-icon-"]::after {
+  position: absolute;
+  content: "";
+  background: url("../assets/images/ic-lnb-more.svg") no-repeat center 100%;
+  width: 5px;
+  bottom: 3px;
+  right: -26px;
+  height: 5px;
+}
+.el-menu-item:nth-child(3) {
+  margin-top: 10px;
 }
 .el-submenu [class^="my-icon-"]::before {
   position: absolute;
@@ -308,6 +420,27 @@ export default {
 .el-submenu__title:hover {
   background-color: #ebe1ff;
 }
+.el-submenu.is-opened i,
+.el-submenu__title:hover i {
+  opacity: 1;
+}
+.el-menu-item:focus,
+.el-menu-item:hover {
+  background-color: #ebe1ff;
+}
+.el-submenu__title:hover [class^="my-icon-"]::after {
+  position: absolute;
+  content: "";
+  background: url("../assets/images/ic-lnb-more-purple.svg") no-repeat center
+    100%;
+  width: 5px;
+  bottom: 3px;
+  right: -26px;
+  height: 5px;
+}
+.el-submenu__title .el-submenu__icon-arrow {
+  opacity: 0.3;
+}
 .el-submenu__title i {
   width: 20px;
   height: 20px;
@@ -325,6 +458,7 @@ export default {
 }
 .el-menu-vertical-demo:not(.el-menu--collapse) .el-menu-item:nth-child(3) {
   padding: 0 30px !important;
+  margin: 0;
 }
 .el-menu-vertical-demo:not(.el-menu--collapse)
   .el-menu-item:nth-child(3):hover {
@@ -340,14 +474,71 @@ export default {
 .el-tabs__item {
   padding: 0 15px;
 }
-.el-radio-button{
+.el-radio-button {
   width: 20px;
 }
-.el-radio-button__inner{
+.el-radio-button__inner {
   padding: 5px;
 }
-.el-tabs--right .el-tabs__nav-wrap.is-right::after{
-  top:15px;
+.el-tabs--right .el-tabs__nav-wrap.is-right::after {
+  top: 15px;
   height: 65%;
+}
+.el-tabs__item {
+  padding-left: 85px;
+}
+.el-tabs__item:hover,
+.el-tabs__item.is-active {
+  background-color: #ebe1ff;
+  color: #222;
+}
+.el-tabs--right .el-tabs__header.is-right {
+  margin: 0;
+  width: 100%;
+}
+.el-tabs--right .el-tabs__nav-wrap.is-right {
+  margin: 0;
+}
+.el-tabs--right .el-tabs__active-bar.is-right {
+  left: 35px;
+}
+.el-tabs__item [class^="you-icon-"] {
+  position: absolute;
+  display: inline-block;
+  background: url("../assets/images/icon-ic-contact-setting-service.svg")
+    no-repeat center 100%;
+  width: 20px;
+  top: 10px;
+  left: 50px;
+  height: 20px;
+}
+.el-tabs__item .you-icon-faq {
+  background: url("../assets/images/icon-ic-contact-faq.svg") no-repeat center
+    100%;
+}
+.el-tabs__item .you-icon-ticket {
+  background: url("../assets/images/icon-ic-contact-ticket.svg") no-repeat
+    center 100%;
+}
+.el-tabs__item .you-icon-helpcenter {
+  background: url("../assets/images/icon-ic-contact-helpcenter.svg") no-repeat
+    center 100%;
+}
+.el-tabs__active-bar {
+  background-color: #222;
+}
+.el-tabs--right .el-tabs__active-bar.is-right {
+  top: 11px;
+  height: 18px !important;
+}
+.el-tabs__nav:after {
+  position: absolute;
+  width: 2px;
+  height: 88%;
+  left: 35px;
+  top: 10px;
+  background: rgba(0, 0, 0, 0.05);
+  content: "";
+  z-index: 1;
 }
 </style>
