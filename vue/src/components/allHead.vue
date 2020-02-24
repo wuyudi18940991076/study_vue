@@ -20,3 +20,8 @@ export default {
   }
 }
 </script>
+<style>
+.allHeader {
+  display: flex;
+}
+</style>

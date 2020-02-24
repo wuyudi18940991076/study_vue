@@ -1,15 +1,5 @@
 <template>
   <div class="myMenu">
-    <div class="logo">
-      <el-image :src="url"></el-image>
-    </div>
-    <el-tabs v-model="activeName" @tab-click="handleClick">
-      <el-tab-pane v-for="(item, index) in navList" :key="index" :label="item.text" :name="item.name">
-        <span slot="label">
-          <el-badge :is-dot="item.dotTrue" class="item">{{ item.text }}</el-badge>
-        </span>
-      </el-tab-pane>
-    </el-tabs>
     <el-menu :default-active="activeIndex2" class="el-menu-demo" mode="horizontal" @select="handleSelect" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
       <el-submenu index="2">
         <template slot="title">
@@ -23,93 +13,13 @@
 </template>
 <script>
 export default {
-  name: 'header',
+  name: 'myRight',
   props: { 'message': String },
   data () {
     return {
       activeName: '2',
       activeIndex2: '1',
       url: require('../assets/images/ic-logo-toast-contact.svg'),
-      navList: [
-        {
-          text: '엔에이치엔 엔터테인먼트',
-          name: '1',
-          dotTrue: true
-        },
-        {
-          text: '엔에이치엔 엔터테인먼트',
-          name: '2',
-          dotTrue: true
-        },
-        {
-          text: '엔에이치엔 엔터테인먼트',
-          name: '3',
-          dotTrue: false
-        },
-        {
-          text: '엔에이치엔 엔터테인먼트',
-          name: '4',
-          dotTrue: true
-        },
-        {
-          text: '크루쉐이더 퀘스트',
-          name: '5',
-          dotTrue: false
-        }, {
-          text: '티켓링크',
-          name: '6',
-          dotTrue: true
-        },
-        {
-          text: 'HANGAME',
-          name: '7',
-          dotTrue: true
-        },
-        {
-          text: 'BUGS',
-          name: '8',
-          dotTrue: false
-        },
-        {
-          text: 'TOAST',
-          name: '9',
-          dotTrue: false
-        },
-        {
-          text: 'PAYCO',
-          name: '10',
-          dotTrue: true
-        },
-        {
-          text: '프렌즈팝',
-          name: '11',
-          dotTrue: false
-        }, {
-          text: 'C-QUEST',
-          name: '12',
-          dotTrue: false
-        },
-        {
-          text: 'HANGAME',
-          name: '13',
-          dotTrue: true
-        },
-        {
-          text: '티켓링크',
-          name: '14',
-          dotTrue: false
-        },
-        {
-          text: '크루쉐이더 퀘스트',
-          name: '15',
-          dotTrue: false
-        },
-        {
-          text: '크루쉐이더 퀘스트',
-          name: '16',
-          dotTrue: false
-        }
-      ],
       cities: [{
         value: 'one',
         label: '개인정보설정'
@@ -130,7 +40,7 @@ export default {
   }
 }
 </script>
-<style>
+<style soped>
 * {
   padding: 0;
   margin: 0;

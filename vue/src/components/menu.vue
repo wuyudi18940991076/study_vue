@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+  <div class="my_menu">
+    <el-menu default-active="1-4-1" class="el-menu-vertical-demo" :collapse-transition="false" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
       <el-menu-item index="1">
         <i class="logoS"></i>
         <span class="logo_img" slot="title"><img :src="url" alt=""></span>
@@ -26,40 +26,18 @@
         </el-menu-item-group>
       </el-submenu>
       <el-radio-group>
-        <div class="have none" @click="trun"></div>
+        <div class="have" v-if="isCollapse" @click="trun"></div>
+        <div class="none" v-else @click="trun"></div>
       </el-radio-group>
     </el-menu>
   </div>
 </template>
 <style>
-.el-radio-group .have,
-.el-radio-group .none {
-  position: relative;
-  border-radius: 50%;
-  background: #f4f4f4;
-  width: 46px;
-  height: 46px;
-  text-align: center;
-}
-.el-radio-group .have::before,
-.el-radio-group .none::before {
-  top: 50%;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  content: "";
-  background: url("../assets/images/ic-float-resize-left.svg") no-repeat center
-    100%;
-  overflow: hidden;
-  position: absolute;
-  width: 20px;
-  height: 20px;
-}
-.el-radio-group .none::before {
-  background: url("../assets/images/ic-float-resize-right.svg") no-repeat center
-    100%;
+* {
+  margin: 0;
+  padding: 0;
 }
 </style>
-
 <script>
 export default {
   name: 'myMenu',
@@ -204,7 +182,9 @@ export default {
             }
           ]
         }
-      ]
+      ],
+      contract: true,
+      expand: false
     }
   },
   methods: {
@@ -220,10 +200,10 @@ export default {
   }
 }
 </script>
-<style soped>
-* {
-  margin: 0;
-  padding: 0;
+<style type="text/css">
+html,
+body {
+  width: 100%;
 }
 .el-menu--collapse {
   position: relative;
@@ -276,7 +256,7 @@ export default {
 }
 .el-menu-item:first-child,
 .el-menu-item:first-child .el-tooltip {
-  padding: 0px !important;
+  padding: 0px 0px !important;
   height: 60px !important;
   line-height: 60px !important;
 }
@@ -529,5 +509,31 @@ export default {
 }
 .el-tooltip__popper {
   display: none !important;
+}
+.el-radio-group .have,
+.el-radio-group .none {
+  position: relative;
+  border-radius: 50%;
+  background: #f4f4f4;
+  width: 46px;
+  height: 46px;
+  text-align: center;
+}
+.el-radio-group .have::before,
+.el-radio-group .none::before {
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  content: "";
+  background: url("../assets/images/ic-float-resize-left.svg") no-repeat center
+    100%;
+  overflow: hidden;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+.el-radio-group .none::before {
+  background: url("../assets/images/ic-float-resize-right.svg") no-repeat center
+    100%;
 }
 </style>
