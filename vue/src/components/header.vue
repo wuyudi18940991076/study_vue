@@ -1,9 +1,6 @@
 <template>
   <div class="myHeader">
     <div class="my_header">
-      <!-- <div class="logo">
-      <el-image :src="url"></el-image>
-    </div> -->
       <el-tabs v-model="activeName" @tab-click="handleClick">
         <el-tab-pane v-for="(item, index) in navList" :key="index" :label="item.text" :name="item.name">
           <span slot="label">
@@ -12,7 +9,7 @@
         </el-tab-pane>
       </el-tabs>
       <el-menu :default-active="activeIndex2" class="el-menu-demo" mode="horizontal" @select="handleSelect" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
-        <el-submenu index="2">
+        <el-submenu popper-class="right_pop" index="2">
           <template slot="title">
             <span><i class="myIcon"></i>상담원명</span>
           </template>
@@ -133,7 +130,12 @@ export default {
 }
 </script>
 <style>
-* {
+.hahahha {
+  background-color: red !important;
+}
+</style>
+<style>
+/* * {
   padding: 0;
   margin: 0;
 }
@@ -144,9 +146,9 @@ body {
 .myHeader .my_header {
   font-size: 0;
   width: 100%;
-}
+} */
 .el-menu.el-menu--horizontal {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   z-index: 3001;
@@ -269,25 +271,25 @@ body {
 .el-menu--popup-bottom-start {
   margin-top: 0;
 }
-.el-menu--popup {
+.right_pop .el-menu--popup {
   min-width: 140px;
   background-color: #fff !important;
   padding: 10px 0;
 }
-.el-menu--popup .el-menu-item {
+.right_pop .el-menu--popup .el-menu-item {
   background-color: #fff !important;
   color: #222 !important;
 }
-.el-menu--horizontal .el-menu .el-menu-item {
+.el-menu--horizontal.right_pop .el-menu .el-menu-item {
   padding: 0 20px;
   height: 30px;
   line-height: 30px;
   font-size: 12px;
 }
-.el-menu--horizontal > .el-submenu.is-active .el-submenu__title {
+.el-menu--horizontal.right_pop > .el-submenu.is-active .el-submenu__title {
   border-bottom: 0;
 }
-.el-menu--horizontal .el-menu-item:hover {
+.el-menu--horizontal.right_pop .el-menu-item:hover {
   color: #6a3ecf !important;
 }
 .myHeader .el-icon-arrow-down {
@@ -302,5 +304,8 @@ body {
   width: 20px;
   height: 20px;
   background: url("../assets/images/ic-arrow-solid-bottom.svg") no-repeat 100%;
+}
+.el-tabs--top .el-tabs__item.is-top:last-child{
+  padding-right: 20px;
 }
 </style>

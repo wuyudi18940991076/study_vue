@@ -18,7 +18,7 @@
             <i :class="item.itemClass"></i>
             <span slot="title">{{item.title}}</span>
           </template>
-          <el-menu-item-group>
+          <el-menu-item-group class="menu_pop">
             <el-tabs :tab-position="tabPosition" style="height: 200px;">
               <el-tab-pane v-for="(list,index) in item.myList" :key="index">
                 <span slot="label"><i :class="list.listClass"></i>{{list.list1}}</span>
@@ -432,14 +432,14 @@ body {
   .el-menu-item:nth-child(3):hover {
   background-color: #ebe1ff;
 }
-.el-tabs__content {
+/* .el-tabs__content {
   display: none;
-}
+} */
 .el-tabs--right .el-tabs__header.is-right {
   float: left;
   margin-left: 35px;
 }
-.el-tabs__item {
+.menu_pop .el-tabs__item {
   padding: 0 15px;
 }
 .myMenu .el-radio-button {
@@ -452,11 +452,11 @@ body {
   top: 15px;
   height: 65%;
 }
-.el-tabs__item {
+.menu_pop .el-tabs__item {
   padding-left: 85px;
 }
-.el-tabs__item:hover,
-.el-tabs__item.is-active {
+.menu_pop .el-tabs__item:hover,
+.menu_pop .el-tabs__item.is-active {
   background-color: #ebe1ff;
   color: #222;
 }
@@ -470,7 +470,7 @@ body {
 .el-tabs--right .el-tabs__active-bar.is-right {
   left: 35px;
 }
-.el-tabs__item [class^="you-icon-"] {
+.menu_pop .el-tabs__item [class^="you-icon-"] {
   position: absolute;
   display: inline-block;
   background: url("../assets/images/icon-ic-contact-setting-service.svg")
@@ -480,15 +480,15 @@ body {
   left: 50px;
   height: 20px;
 }
-.el-tabs__item .you-icon-faq {
+.menu_pop .el-tabs__item .you-icon-faq {
   background: url("../assets/images/icon-ic-contact-faq.svg") no-repeat center
     100%;
 }
-.el-tabs__item .you-icon-ticket {
+.menu_pop .el-tabs__item .you-icon-ticket {
   background: url("../assets/images/icon-ic-contact-ticket.svg") no-repeat
     center 100%;
 }
-.el-tabs__item .you-icon-helpcenter {
+.menu_pop .el-tabs__item .you-icon-helpcenter {
   background: url("../assets/images/icon-ic-contact-helpcenter.svg") no-repeat
     center 100%;
 }

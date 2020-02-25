@@ -1,11 +1,22 @@
 <template>
   <div id="app">
-    <router-view/>
+    <div class="appclass">
+      <my-menu></my-menu>
+      <my-header></my-header>
+    </div>
   </div>
 </template>
 
 <script>
+import MyMenu from './components/menu'
+import MyHeader from './components/header'
 export default {
-  name: 'App'
+  name: 'App',
+  components: { MyMenu, MyHeader }
 }
 </script>
+<style>
+.appclass {
+  display: flex;
+}
+</style>

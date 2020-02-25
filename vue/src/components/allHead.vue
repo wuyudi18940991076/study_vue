@@ -1,7 +1,11 @@
 <template>
   <div class="allHeader">
-    <my-menu></my-menu>
-    <my-header></my-header>
+    <div class="left">
+      <my-menu></my-menu>
+    </div>
+    <div class="right">
+      <my-header></my-header>
+    </div>
   </div>
 </template>
 <script>
@@ -23,5 +27,12 @@ export default {
 <style>
 .allHeader {
   display: flex;
+}
+.left {
+  max-width: 280px;
+}
+.right {
+  flex: 1;
+  width: 0;
 }
 </style>
