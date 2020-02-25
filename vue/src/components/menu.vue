@@ -1,35 +1,37 @@
 <template>
-  <div class="my_menu">
-    <el-menu default-active="1-4-1" class="el-menu-vertical-demo" :collapse-transition="false" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-      <el-menu-item index="1">
-        <i class="logoS"></i>
-        <span class="logo_img" slot="title"><img :src="url" alt=""></span>
-      </el-menu-item>
-      <el-menu-item index="2" popper-class=''>
-        <span class="name_h2" slot="title">CS관리시스템</span>
-      </el-menu-item>
-      <el-menu-item index="3">
-        <i class="my-icon-notice"></i>
-        <span slot="title">공지사항</span>
-      </el-menu-item>
-      <el-submenu :index="index+1+''" v-for="(item,index) in menuList" :key="index">
-        <template slot="title">
-          <i :class="item.itemClass"></i>
-          <span slot="title">{{item.title}}</span>
-        </template>
-        <el-menu-item-group>
-          <el-tabs :tab-position="tabPosition" style="height: 200px;">
-            <el-tab-pane v-for="(list,index) in item.myList" :key="index">
-              <span slot="label"><i :class="list.listClass"></i>{{list.list1}}</span>
-            </el-tab-pane>
-          </el-tabs>
-        </el-menu-item-group>
-      </el-submenu>
-      <el-radio-group>
-        <div class="have" v-if="isCollapse" @click="trun"></div>
-        <div class="none" v-else @click="trun"></div>
-      </el-radio-group>
-    </el-menu>
+  <div class="myMenu">
+    <div class="my_menu">
+      <el-menu default-active="1-4-1" class="el-menu-vertical-demo" :collapse-transition="false" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+        <el-menu-item index="1">
+          <i class="logoS"></i>
+          <span class="logo_img" slot="title"><img :src="url" alt=""></span>
+        </el-menu-item>
+        <el-menu-item index="2" popper-class=''>
+          <span class="name_h2" slot="title">CS관리시스템</span>
+        </el-menu-item>
+        <el-menu-item index="3">
+          <i class="my-icon-notice"></i>
+          <span slot="title">공지사항</span>
+        </el-menu-item>
+        <el-submenu :index="index+1+''" v-for="(item,index) in menuList" :key="index">
+          <template slot="title">
+            <i :class="item.itemClass"></i>
+            <span slot="title">{{item.title}}</span>
+          </template>
+          <el-menu-item-group>
+            <el-tabs :tab-position="tabPosition" style="height: 200px;">
+              <el-tab-pane v-for="(list,index) in item.myList" :key="index">
+                <span slot="label"><i :class="list.listClass"></i>{{list.list1}}</span>
+              </el-tab-pane>
+            </el-tabs>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-radio-group>
+          <div class="have" v-if="isCollapse" @click="trun"></div>
+          <div class="none" v-else @click="trun"></div>
+        </el-radio-group>
+      </el-menu>
+    </div>
   </div>
 </template>
 <style>
@@ -205,29 +207,29 @@ html,
 body {
   width: 100%;
 }
-.el-menu--collapse {
+.myMenu .el-menu--collapse {
   position: relative;
 }
-.el-menu-vertical-demo:not(.el-menu--collapse) > .el-menu-item:first-child {
+.myMenu .el-menu-vertical-demo:not(.el-menu--collapse) > .el-menu-item:first-child {
   background-color: #6a3ecf;
   text-align: center;
 }
-.el-menu-vertical-demo:not(.el-menu--collapse)
+.myMenu .el-menu-vertical-demo:not(.el-menu--collapse)
   > .el-menu-item:first-child:hover {
   background-color: #521ec9;
 }
-.el-menu-vertical-demo:not(.el-menu--collapse) {
+.myMenu .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
   min-height: 400px;
 }
-.logoS {
+.myMenu .logoS {
   margin: 0;
   vertical-align: middle;
   width: 24px;
   text-align: center;
   position: relative;
 }
-.logoS::before {
+.myMenu .logoS::before {
   background: url("../assets/images/ic-logo-toast-contact-s.svg") no-repeat
     center;
   background-color: #6a3ecf;
@@ -239,7 +241,7 @@ body {
   height: 60px;
   background-size: 28px;
 }
-.logoS:hover::before {
+.myMenu .logoS:hover::before {
   background: url("../assets/images/ic-logo-toast-contact-s.svg") no-repeat
     center;
   background-color: #521ec9;
@@ -251,65 +253,65 @@ body {
   height: 60px;
   background-size: 28px;
 }
-.el-menu--collapse {
+.myMenu .el-menu--collapse {
   width: 60px;
 }
-.el-menu-item:first-child,
-.el-menu-item:first-child .el-tooltip {
+.myMenu .el-menu-item:first-child,
+.myMenu .el-menu-item:first-child .el-tooltip {
   padding: 0px 0px !important;
   height: 60px !important;
   line-height: 60px !important;
 }
-.el-menu-item:nth-child(2),
-.el-menu-item:nth-child(2) .el-tooltip {
+.myMenu .el-menu-item:nth-child(2),
+.myMenu .el-menu-item:nth-child(2) .el-tooltip {
   display: none;
 }
-.el-menu-vertical-demo:not(.el-menu--collapse) .el-menu-item:nth-child(2) {
+.myMenu .el-menu-vertical-demo:not(.el-menu--collapse) .el-menu-item:nth-child(2) {
   display: inline-block;
   padding-left: 30px !important;
   margin: 16px 0 6px 0;
   height: 40px;
   line-height: 40px;
 }
-.el-menu-vertical-demo:not(.el-menu--collapse)
+.myMenu .el-menu-vertical-demo:not(.el-menu--collapse)
   .el-menu-item:nth-child(2):hover {
   background-color: #fff;
 }
-.el-menu-vertical-demo:not(.el-menu--collapse) {
+.myMenu .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 280px;
 }
-.el-menu-vertical-demo:not(.el-menu--collapse) .el-menu-item i::before {
+.myMenu .el-menu-vertical-demo:not(.el-menu--collapse) .el-menu-item i::before {
   content: "";
   display: none;
 }
-.el-menu-item [class^="el-icon-"] {
+.myMenu .el-menu-item [class^="el-icon-"] {
   width: 0;
 }
-.el-menu-item {
+.myMenu .el-menu-item {
   padding: 0 30px;
   height: 42px;
   line-height: 42px;
 }
-.el-menu-vertical-demo:not(.el-menu--collapse) .el-menu-item {
+.myMenu .el-menu-vertical-demo:not(.el-menu--collapse) .el-menu-item {
   height: 42px;
   line-height: 42px;
   font-size: 13px;
   color: #222;
 }
-.name_h2 {
+.myMenu .name_h2 {
   display: block;
   font-size: 16px !important;
   font-weight: 500;
   color: #222222;
 }
-.el-submenu [class^="my-icon-"] {
+.myMenu .el-submenu [class^="my-icon-"] {
   text-align: center;
   position: relative;
   line-height: 42px;
   display: none;
   width: 0;
 }
-.el-menu-item:nth-child(3) .el-tooltip .my-icon-notice::before {
+.myMenu .el-menu-item:nth-child(3) .el-tooltip .my-icon-notice::before {
   position: absolute;
   content: "";
   background: url("../assets/images/icon-ic-contact-notice.svg") no-repeat
@@ -319,7 +321,7 @@ body {
   transform: translateY(-50%);
   height: 20px;
 }
-.el-submenu [class^="my-icon-"]::after {
+.myMenu .el-submenu [class^="my-icon-"]::after {
   position: absolute;
   content: "";
   background: url("../assets/images/ic-lnb-more.svg") no-repeat center 100%;
@@ -328,10 +330,10 @@ body {
   right: -26px;
   height: 5px;
 }
-.el-menu-item:nth-child(3) {
+.myMenu .el-menu-item:nth-child(3) {
   margin-top: 10px;
 }
-.el-submenu [class^="my-icon-"]::before {
+.myMenu .el-submenu [class^="my-icon-"]::before {
   position: absolute;
   content: "";
   background: url("../assets/images/icon-ic-contact-faq.svg") no-repeat center
@@ -341,60 +343,60 @@ body {
   transform: translateY(-50%);
   height: 20px;
 }
-.el-submenu .my-icon-ticket::before {
+.myMenu .el-submenu .my-icon-ticket::before {
   background: url("../assets/images/icon-ic-contact-ticket.svg") no-repeat
     center 100%;
 }
-.el-submenu .my-icon-help::before {
+.myMenu .el-submenu .my-icon-help::before {
   background: url("../assets/images/icon-ic-contact-help.svg") no-repeat center
     100%;
 }
-.el-submenu .my-icon-report::before {
+.myMenu .el-submenu .my-icon-report::before {
   background: url("../assets/images/icon-ic-contact-report.svg") no-repeat
     center 100%;
 }
-.el-submenu .my-icon-setting-se::before {
+.myMenu .el-submenu .my-icon-setting-se::before {
   background: url("../assets/images/icon-ic-contact-setting-service.svg")
     no-repeat center 100%;
 }
-.el-submenu .my-icon-setting::before {
+.myMenu .el-submenu .my-icon-setting::before {
   background: url("../assets/images/icon-ic-contact-setting.svg") no-repeat
     center 100%;
 }
-.el-submenu__title {
+.myMenu .el-submenu__title {
   height: 42px;
   line-height: 42px;
   padding: 0 55px 0 30px !important;
 }
-.el-menu--collapse .el-submenu [class^="my-icon-"] {
+.myMenu .el-menu--collapse .el-submenu [class^="my-icon-"] {
   display: inline-block;
 }
-.el-menu--collapse .el-submenu .el-submenu__title {
+.myMenu .el-menu--collapse .el-submenu .el-submenu__title {
   padding: 0px 20px !important;
 }
-.el-menu-vertical-demo:not(.el-menu--collapse) {
+.myMenu .el-menu-vertical-demo:not(.el-menu--collapse) {
   height: 100vh;
 }
-.el-menu--collapse {
+.myMenu .el-menu--collapse {
   height: 100vh;
 }
-.el-radio-group {
+.myMenu .el-radio-group {
   position: absolute;
   top: 500px;
   right: -22px;
 }
-.el-submenu__title:hover {
+.myMenu .el-submenu__title:hover {
   background-color: #ebe1ff;
 }
-.el-submenu.is-opened i,
-.el-submenu__title:hover i {
+.myMenu .el-submenu.is-opened i,
+.myMenu .el-submenu__title:hover i {
   opacity: 1;
 }
-.el-menu-item:focus,
-.el-menu-item:hover {
+.myMenu .el-menu-item:focus,
+.myMenu .el-menu-item:hover {
   background-color: #ebe1ff;
 }
-.el-submenu__title:hover [class^="my-icon-"]::after {
+.myMenu .el-submenu__title:hover [class^="my-icon-"]::after {
   position: absolute;
   content: "";
   background: url("../assets/images/ic-lnb-more-purple.svg") no-repeat center
@@ -404,29 +406,29 @@ body {
   right: -26px;
   height: 5px;
 }
-.el-submenu__title .el-submenu__icon-arrow {
+.myMenu .el-submenu__title .el-submenu__icon-arrow {
   opacity: 0.3;
 }
-.el-submenu__title i {
+.myMenu .el-submenu__title i {
   width: 20px;
   height: 20px;
   background: url("../assets/images/ic-arrow-solid-bottom.svg") no-repeat center
     100%;
 }
-.el-submenu__title i::before {
+.myMenu .el-submenu__title i::before {
   content: "";
 }
-.el-menu--collapse
+.myMenu .el-menu--collapse
   > .el-submenu
   > .el-submenu__title
   .el-submenu__icon-arrow.el-icon-arrow-right {
   display: none;
 }
-.el-menu-vertical-demo:not(.el-menu--collapse) .el-menu-item:nth-child(3) {
+.myMenu .el-menu-vertical-demo:not(.el-menu--collapse) .el-menu-item:nth-child(3) {
   padding: 0 30px !important;
   margin: 0;
 }
-.el-menu-vertical-demo:not(.el-menu--collapse)
+.myMenu .el-menu-vertical-demo:not(.el-menu--collapse)
   .el-menu-item:nth-child(3):hover {
   background-color: #ebe1ff;
 }
@@ -440,10 +442,10 @@ body {
 .el-tabs__item {
   padding: 0 15px;
 }
-.el-radio-button {
+.myMenu .el-radio-button {
   width: 20px;
 }
-.el-radio-button__inner {
+.myMenu .el-radio-button__inner {
   padding: 5px;
 }
 .el-tabs--right .el-tabs__nav-wrap.is-right::after {
@@ -497,21 +499,12 @@ body {
   top: 11px;
   height: 18px !important;
 }
-.el-tabs__nav:after {
-  position: absolute;
-  width: 2px;
-  height: 88%;
-  left: 35px;
-  top: 10px;
-  background: rgba(0, 0, 0, 0.05);
-  content: "";
-  z-index: 1;
-}
+
 .el-tooltip__popper {
   display: none !important;
 }
-.el-radio-group .have,
-.el-radio-group .none {
+.myMenu .el-radio-group .have,
+.myMenu .el-radio-group .none {
   position: relative;
   border-radius: 50%;
   background: #f4f4f4;
@@ -519,8 +512,8 @@ body {
   height: 46px;
   text-align: center;
 }
-.el-radio-group .have::before,
-.el-radio-group .none::before {
+.myMenu .el-radio-group .have::before,
+.myMenu .el-radio-group .none::before {
   top: 50%;
   transform: translate(-50%, -50%);
   left: 50%;
@@ -532,8 +525,20 @@ body {
   width: 20px;
   height: 20px;
 }
-.el-radio-group .none::before {
+.myMenu .el-radio-group .none::before {
   background: url("../assets/images/ic-float-resize-right.svg") no-repeat center
     100%;
+}
+</style>
+<style>
+.el-tabs__nav.is-right:after {
+  position: absolute;
+  width: 2px;
+  height: 88%;
+  left: 35px;
+  top: 10px;
+  background: rgba(0, 0, 0, 0.05);
+  content: "";
+  z-index: 1;
 }
 </style>
