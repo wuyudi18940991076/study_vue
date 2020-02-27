@@ -1,31 +1,26 @@
 <template>
-  <div class="allHeader">
-    <div class="left">
-      <my-menu></my-menu>
-    </div>
-    <div class="right">
-      <my-header></my-header>
+  <div class="allheader">
+    <div id="allheader">
+      <div class="left">
+        <my-menu></my-menu>
+      </div>
+      <div class="right">
+        <my-header></my-header>
+      </div>
     </div>
   </div>
 </template>
+
 <script>
-import MyMenu from './menu'
-import MyHeader from './header'
+import MyMenu from '../components/menu'
+import MyHeader from '../components/header'
 export default {
-  name: 'allHeader',
-  components: { MyMenu, MyHeader },
-  data () {
-    return {
-
-    }
-  },
-  methods: {
-
-  }
+  name: 'allheader',
+  components: { MyMenu, MyHeader }
 }
 </script>
 <style>
-.allHeader {
+#allheader {
   display: flex;
 }
 .left {

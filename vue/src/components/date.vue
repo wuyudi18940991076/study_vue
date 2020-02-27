@@ -20,8 +20,8 @@ export default {
 <style scoped>
 .block {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 120px;
+  left: 120px;
 }
 .el-date-editor--daterange.el-input__inner {
   width: 204px;
@@ -51,8 +51,8 @@ export default {
 .el-date-editor >>> .el-range__close-icon.el-icon-circle-close::before {
   display: none;
 }
-.el-date-editor >>> .el-icon-date::before{
-  content: '';
+.el-date-editor >>> .el-icon-date::before {
+  content: "";
   background: url("../assets/images/ic-calendar.svg") no-repeat 100%;
   position: absolute;
   top: 50%;
@@ -81,6 +81,7 @@ export default {
   width: 32px;
   height: 32px;
   line-height: 32px;
+  font-size: 13px;
 }
 .date_pop .el-date-table td.start-date div {
   border-radius: 0;
@@ -113,15 +114,15 @@ export default {
 .date_pop.el-picker-panel {
   line-height: 32px;
 }
-.date_pop .el-picker-panel__icon-btn{
+.date_pop .el-picker-panel__icon-btn {
   margin-top: 11px;
 }
-.date_pop .el-date-range-picker__header div{
+.date_pop .el-date-range-picker__header div {
   font-size: 18px;
   color: #000;
 }
-.date_pop .el-icon-d-arrow-left:before{
-  content: '';
+.date_pop .el-icon-d-arrow-left:before {
+  content: "";
   background: url("../assets/images/ic-paging-prev-page.svg") no-repeat 100%;
   position: absolute;
   top: 50%;
@@ -130,8 +131,8 @@ export default {
   width: 20px;
   height: 20px;
 }
-.date_pop .el-icon-arrow-left:before{
-    content: '';
+.date_pop .el-icon-arrow-left:before {
+  content: "";
   background: url("../assets/images/ic-paging-prev.svg") no-repeat 100%;
   position: absolute;
   top: 50%;
@@ -140,8 +141,8 @@ export default {
   width: 20px;
   height: 20px;
 }
-.date_pop .el-icon-d-arrow-right:before{
-  content: '';
+.date_pop .el-icon-d-arrow-right:before {
+  content: "";
   background: url("../assets/images/ic-paging-next.svg") no-repeat 100%;
   position: absolute;
   top: 50%;
@@ -150,8 +151,8 @@ export default {
   width: 20px;
   height: 20px;
 }
-.date_pop .el-icon-arrow-right:before{
-    content: '';
+.date_pop .el-icon-arrow-right:before {
+  content: "";
   background: url("../assets/images/ic-paging-next-page.svg") no-repeat 100%;
   position: absolute;
   top: 50%;
@@ -161,7 +162,35 @@ export default {
   height: 20px;
 }
 .date_pop .el-picker-panel,
-.date_pop .el-date-table th{
+.date_pop .el-date-table th {
   color: #222;
+}
+.date_pop {
+  border: 1px solid #aaa;
+  border-radius: 0;
+}
+.date_pop .popper__arrow {
+  display: none;
+}
+.date_pop.el-popper[x-placement^="bottom"] {
+  margin-top: 4px;
+}
+.date_pop .el-date-range-picker__content.is-left {
+  border-right: 1px solid #f4f4f4;
+  box-sizing: border-box;
+}
+.date_pop .el-date-range-picker table {
+  margin-top: 16px;
+}
+.date_pop .el-date-table th {
+  padding: 0;
+  border: 0;
+}
+.date_pop .el-date-table td.next-month,
+.date_pop .el-date-table td.prev-month {
+  color: #c0c4cc !important;
+}
+.date_pop .el-date-table {
+  font-size: 13px;
 }
 </style>
