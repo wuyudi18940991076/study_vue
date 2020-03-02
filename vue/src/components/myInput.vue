@@ -50,8 +50,418 @@
       通用联选择器
       <el-cascader popper-class="select_pop" class="mySelect" v-model="value6" :options="options" :props="{ expandTrigger: 'hover' }" @change="handleChange"></el-cascader>
     </div>
+    <div class="common_button">
+      <p>白色小按钮</p>
+      <el-button type="primary" class="button_s write_b" plain>이동</el-button>
+      <p>禁用</p>
+      <el-button type="primary" class="button_s write_b" disabled="" plain>禁用</el-button>
+      <p>紫色小按钮</p>
+      <el-button type="primary" class="button_s purple_b" plain>이동</el-button>
+      <p>禁用</p>
+      <el-button type="primary" class="button_s purple_b" disabled="" plain>禁用</el-button>
+      <p>红色小按钮</p>
+      <el-button type="primary" class="button_s red_b" plain>이동</el-button>
+      <p>禁用</p>
+      <el-button type="primary" class="button_s red_b" disabled="" plain>禁用</el-button>
+      <p>灰色小按钮</p>
+      <el-button type="primary" class="button_s gray_b" plain>이동</el-button>
+      <p>禁用</p>
+      <el-button type="primary" class="button_s gray_b" disabled="" plain>禁用</el-button>
+      <p>白色M按钮</p>
+      <el-button type="primary" class="button_m write_b">搜索</el-button>
+      <p>带icon</p>
+      <el-button type="primary" class="button_m write_b have_icon" icon="my_icon_search">搜索</el-button>
+      <p>禁用</p>
+      <el-button type="primary" class="button_m write_b" disabled="">搜索</el-button>
+      <p>紫色M按钮</p>
+      <el-button type="primary" class="button_m purple_b">搜索</el-button>
+      <p>带icon</p>
+      <el-button type="primary" class="button_m purple_b have_icon" icon="my_icon_add">搜索</el-button>
+      <p>禁用</p>
+      <el-button type="primary" class="button_m purple_b" disabled="">搜索</el-button>
+      <p>红色M按钮</p>
+      <el-button type="primary" class="button_m red_b">搜索</el-button>
+      <p>带icon</p>
+      <el-button type="primary" class="button_m red_b have_icon" icon="my_icon_add">搜索</el-button>
+      <p>禁用</p>
+      <el-button type="primary" class="button_m red_b" disabled="">搜索</el-button>
+      <p>灰色M按钮</p>
+      <el-button type="primary" class="button_m gray_b">搜索</el-button>
+      <p>带icon</p>
+      <el-button type="primary" class="button_m gray_b have_icon" icon="my_icon_add">搜索</el-button>
+      <p>禁用</p>
+      <el-button type="primary" class="button_m gray_b" disabled="">搜索</el-button>
+      <p>紫色L按钮</p>
+      <el-button type="primary" class="button_l purple_b">0</el-button>
+      <p>禁用</p>
+      <el-button type="primary" class="button_l purple_b" disabled="">0</el-button>
+      <p>灰色L按钮</p>
+      <el-button type="primary" class="button_l gray_b">0</el-button>
+      <p>禁用</p>
+      <el-button type="primary" class="button_l gray_b" disabled="">0</el-button>
+
+      <p>紫色XL按钮</p>
+      <el-button type="primary" class="button_xl purple_b">0</el-button>
+      <p>禁用</p>
+      <el-button type="primary" class="button_xl purple_b" disabled="">0</el-button>
+      <p>灰色XL按钮</p>
+      <el-button type="primary" class="button_xl gray_b">0</el-button>
+      <p>禁用</p>
+      <el-button type="primary" class="button_xl gray_b" disabled="">0</el-button>
+    </div>
+    <div class="common_tab">
+      <el-radio-group class="type_one" v-model="radio1">
+        <el-radio-button label="上海"></el-radio-button>
+        <el-radio-button label="北京"></el-radio-button>
+      </el-radio-group>
+      <el-radio-group class="type_two" v-model="radio2">
+        <el-radio-button label="0"></el-radio-button>
+        <el-radio-button label="1"></el-radio-button>
+      </el-radio-group>
+    </div>
+    <div class="common_switch">
+      <p>正常状态</p>
+      <el-switch v-model="value66" active-color="#6a3ecf" inactive-color="#ddd">
+      </el-switch>
+      <p>禁用状态</p>
+      <el-switch v-model="value67" active-color="#6a3ecf" disabled="" inactive-color="#ddd">
+      </el-switch>
+    </div>
+    <div class="common_check">
+      <el-radio class="my_radio" v-model="radio_o" label="1"></el-radio>
+      <el-radio class="my_radio" v-model="radio_o" label="2"></el-radio>
+      <el-radio disabled v-model="radio_x" label="禁用">备选项</el-radio>
+      <el-radio disabled v-model="radio_x" label="选中且禁用">备选项</el-radio>
+      <el-checkbox class="my_checked" v-model="checked">备选项</el-checkbox>
+      <el-checkbox class="my_checked" v-model="checked1" disabled>备选项1</el-checkbox>
+      <el-checkbox class="my_checked" v-model="checked2" disabled>备选项</el-checkbox>
+    </div>
+    <div class="common_chat">
+      <div class="first_chat my_chat">对方说的第一条话</div>
+      <br><br>
+      <div class="my_chat">对方之后说的话</div>
+      <br><br>
+      <div class="minefirst_chat mine my_chat">本人说的第一句话</div>
+      <br><br>
+      <div class="my_chat mine">本人之后说的话</div>
+    </div>
   </div>
 </template>
+<style>
+.common_chat {
+  position: absolute;
+  top: 600px;
+  left: 1000px;
+}
+.my_chat {
+  height: 38px;
+  line-height: 36px;
+  border: 1px solid #e2e2e2;
+  box-sizing: border-box;
+  padding: 0px 15px;
+  display: inline-block;
+  color: #222;
+  position: relative;
+}
+.mine {
+  background-color: #e1d5fa;
+  border: 0;
+}
+.first_chat,
+.minefirst_chat {
+  position: relative;
+}
+.first_chat::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #e2e2e2;
+  position: absolute;
+  transform: rotate(44deg);
+  left: -11px;
+  top: 2px;
+}
+.first_chat::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #fff;
+  position: absolute;
+  transform: rotate(45deg);
+  left: -8.5px;
+  top: 3px;
+}
+.minefirst_chat::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #e1d5fa;
+  position: absolute;
+  transform: rotate(-45deg);
+  right: -10px;
+  top: 2px;
+}
+</style>
+<style>
+input:focus {
+  outline: none;
+}
+.common_tab {
+  position: absolute;
+  top: 220px;
+  right: 290px;
+}
+.type_one .el-radio-button__inner {
+  border: 1px solid #eee;
+  color: #222;
+  padding: 8px 25px;
+  font-size: 13px;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+.type_one .el-radio-button__inner:hover {
+  border: 1px solid transparent;
+  background-color: #ebe1ff;
+  color: #222;
+  box-sizing: border-box;
+}
+.type_one .el-radio-button__orig-radio:checked + .el-radio-button__inner {
+  background-color: #6a3ecf;
+  color: #fff;
+  border: 1px solid transparent;
+}
+.type_two .el-radio-button__inner {
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 10px 6px;
+  font-size: 13px;
+  box-sizing: border-box;
+  border-radius: 2px 2px 2px 2px;
+  height: 32px;
+  line-height: 10px;
+  width: 28px;
+}
+.type_two .el-radio-button__inner:hover {
+  border: 1px solid #aaa;
+  background-color: #f9f9f9;
+  color: #333;
+  box-sizing: border-box;
+}
+.type_two .el-radio-button__orig-radio:checked + .el-radio-button__inner {
+  background-color: #fff;
+  color: #333;
+  border: 2px solid #6a3ecf;
+}
+.el-switch__core {
+  width: 24px !important;
+  height: 14px;
+  line-height: 14px;
+}
+.el-switch.is-checked .el-switch__core::after {
+  margin-left: -12px;
+}
+.el-switch__core:after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 100%;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+}
+.my_radio .el-radio__inner:hover {
+  border-color: #aaa;
+}
+.my_radio .el-radio__input.is-checked .el-radio__inner {
+  border-color: #c5c5c5;
+  background-color: #fff;
+}
+.my_radio .el-radio__inner::after {
+  background-color: #6a3ecf;
+  width: 8px;
+  height: 8px;
+}
+.el-checkbox__inner {
+  border: 1px solid #c3c3c3;
+}
+.el-checkbox__inner::after {
+  border: 2px solid #fff;
+  border-left: 0;
+  border-top: 0;
+}
+.el-checkbox__inner:hover {
+  border-color: #999;
+}
+.el-checkbox__input.is-checked .el-checkbox__inner,
+.el-checkbox__input.is-indeterminate .el-checkbox__inner {
+  background-color: #521ec9;
+  border-color: #521ec9;
+}
+</style>
+<style>
+.common_button {
+  position: absolute;
+  top: 220px;
+  left: 666px;
+  width: 100px;
+}
+.common_button p {
+  line-height: 30px;
+  height: 30px;
+  font-size: 16px;
+  text-align: center;
+}
+.button_s.el-button {
+  padding: 0px 8px;
+  height: 24px;
+  line-height: 24px;
+  width: 100%;
+  font-size: 13px;
+  text-align: left;
+  border-radius: 2px;
+}
+.el-button.have_icon {
+  padding: 6px 12px 6px 6px !important;
+}
+.write_b.el-button--primary {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  color: #333;
+}
+.write_b.el-button--primary:active,
+.write_b.el-button--primary:focus,
+.write_b.el-button--primary:hover,
+.write_b.el-button--primary.is-disabled,
+.write_b.el-button--primary.is-disabled:active,
+.write_b.el-button--primary.is-disabled:focus,
+.write_b.el-button--primary.is-disabled:hover {
+  color: #333;
+  background: #f9f9f9;
+  border: 1px solid #aaa;
+}
+.write_b.el-button--primary.is-disabled,
+.write_b.el-button--primary.is-disabled:active,
+.write_b.el-button--primary.is-disabled:focus,
+.write_b.el-button--primary.is-disabled:hover {
+  opacity: 0.2;
+}
+.purple_b.el-button--primary {
+  background-color: #6a3ecf;
+  border: 0px solid #ddd;
+  color: #fff;
+}
+.purple_b.el-button--primary:active,
+.purple_b.el-button--primary:focus,
+.purple_b.el-button--primary:hover,
+.purple_b.el-button--primary.is-disabled,
+.purple_b.el-button--primary.is-disabled:active,
+.purple_b.el-button--primary.is-disabled:focus,
+.purple_b.el-button--primary.is-disabled:hover {
+  color: #fff;
+  background: #521ec9;
+  border: 0px solid #aaa;
+}
+.purple_b.el-button--primary.is-disabled,
+.purple_b.el-button--primary.is-disabled:active,
+.purple_b.el-button--primary.is-disabled:focus,
+.purple_b.el-button--primary.is-disabled:hover {
+  opacity: 0.2;
+}
+.red_b.el-button--primary {
+  background-color: #ff0000;
+  border: 0px solid #ddd;
+  color: #fff;
+}
+.red_b.el-button--primary:active,
+.red_b.el-button--primary:focus,
+.red_b.el-button--primary:hover,
+.red_b.el-button--primary.is-disabled,
+.red_b.el-button--primary.is-disabled:active,
+.red_b.el-button--primary.is-disabled:focus,
+.red_b.el-button--primary.is-disabled:hover {
+  color: #fff;
+  background: #e50b0b;
+  border: 0px solid #aaa;
+}
+.red_b.el-button--primary.is-disabled,
+.red_b.el-button--primary.is-disabled:active,
+.red_b.el-button--primary.is-disabled:focus,
+.red_b.el-button--primary.is-disabled:hover {
+  opacity: 0.2;
+}
+.gray_b.el-button--primary {
+  background-color: #aaa;
+  border: 0px solid #ddd;
+  color: #fff;
+}
+.gray_b.el-button--primary:active,
+.gray_b.el-button--primary:focus,
+.gray_b.el-button--primary:hover,
+.gray_b.el-button--primary.is-disabled,
+.gray_b.el-button--primary.is-disabled:active,
+.gray_b.el-button--primary.is-disabled:focus,
+.gray_b.el-button--primary.is-disabled:hover {
+  color: #fff;
+  background: #999;
+  border: 0px solid #aaa;
+}
+.gray_b.el-button--primary.is-disabled,
+.gray_b.el-button--primary.is-disabled:active,
+.gray_b.el-button--primary.is-disabled:focus,
+.gray_b.el-button--primary.is-disabled:hover {
+  opacity: 0.2;
+}
+.button_m.el-button {
+  padding: 6px 12px;
+  height: 32px;
+  line-height: 21px;
+  width: 100%;
+  font-size: 13px;
+  text-align: left;
+  border-radius: 2px;
+}
+.write_b.el-button--primary .my_icon_search {
+  display: inline-block;
+  vertical-align: top;
+  width: 20px;
+  height: 20px;
+  background: url("../assets/images/ic-search.svg") no-repeat 100%;
+}
+.el-button--primary .my_icon_add {
+  display: inline-block;
+  vertical-align: top;
+  width: 20px;
+  height: 20px;
+  background: url("../assets/images/ic-make-white.svg") no-repeat 100%;
+}
+.button_l.el-button {
+  padding: 3px 30px;
+  height: 40px;
+  line-height: 38px;
+  width: 100%;
+  font-size: 15px;
+  text-align: left;
+  border-radius: 2px;
+}
+.button_xl.el-button {
+  height: 44px;
+  width: 100%;
+  font-size: 15px;
+  text-align: center;
+  border-radius: 2px;
+}
+</style>
 <style>
 .my_cascader {
   position: absolute;
@@ -100,10 +510,10 @@
   opacity: 0.3;
 }
 .el-cascader-node:not(.is-disabled):focus,
-.el-cascader-node:not(.is-disabled):hover{
- opacity: 1;
+.el-cascader-node:not(.is-disabled):hover {
+  opacity: 1;
 }
-.el-cascader-node.in-active-path:focus .el-icon-arrow-right:before{
+.el-cascader-node.in-active-path:focus .el-icon-arrow-right:before {
   opacity: 1;
 }
 .el-cascader-node.in-active-path:hover .el-icon-arrow-right:before {
@@ -133,9 +543,7 @@
   left: auto;
   right: 20px;
 }
-/* .el-cascader-node.in-active-path:before, */
 .el-cascader-node.in-active-path.in-checked-path:before,
-/* .el-cascader-node.is-selectable.in-checked-path:before, */
 .el-icon-check:before {
   content: "";
   background: url("../assets/images/ic-check-purple.svg") no-repeat 100%;
@@ -146,7 +554,7 @@
   right: 5px;
   transform: translateY(-50%);
 }
-.el-cascader-menu{
+.el-cascader-menu {
   min-width: 210px;
 }
 </style>
@@ -156,6 +564,14 @@ export default {
   props: { 'message': String },
   data () {
     return {
+      value66: true,
+      checked: true,
+      checked1: false,
+      checked2: true,
+      radio_x: '选中且禁用',
+      radio1: 'lala',
+      radio2: '上海',
+      radio_o: '1',
       input1: '',
       input2: '',
       input3: '',
