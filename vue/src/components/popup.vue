@@ -21,7 +21,7 @@
     <div>
       <p class="my_description">下面是带树形控件的popup</p>
       <el-button type="text" @click="dialogVisible = true">点击打开 Dialog</el-button>
-      <el-dialog custom-class="pop_type2" title="접수유형 조회" :visible.sync="dialogVisible" width="30%" :before-close="handleClose">
+      <el-dialog custom-class="pop_type2" title="접수유형 조회" :visible.sync="dialogVisible" width="400px" :before-close="handleClose">
         <el-input placeholder="请输入内容" v-model="input3" class="input-with-select">
           <el-button slot="append" icon="el-icon-search">검색</el-button>
         </el-input>
@@ -35,6 +35,142 @@
         </span>
       </el-dialog>
     </div>
+    <div>
+      <p class="my_description">下面是带表格的popup</p>
+      <el-button type="text" @click="dialogVisible1 = true">点击打开带表格的popup</el-button>
+      <el-dialog custom-class="pop_type2" title="개인정보" :visible.sync="dialogVisible1" width="590px" :before-close="handleClose">
+        <dl class="my_information">
+          <dt>계정</dt>
+          <dd>
+            <el-input placeholder="kimenter" disabled v-model="input4" class="input-with-select"></el-input>
+          </dd>
+          <dt>이름</dt>
+          <dd>
+            <el-input placeholder="김엔터" v-model="input5" class="input-with-select"></el-input>
+          </dd>
+          <dt>닉네임</dt>
+          <dd>
+            <el-input placeholder="엔터" v-model="input6" class="input-with-select"></el-input>
+          </dd>
+          <dt>전화번호</dt>
+          <dd>
+            <el-input placeholder="010-1234-5678" v-model="input7" class="input-with-select"></el-input>
+          </dd>
+          <dt>이메일</dt>
+          <dd>
+            <el-input placeholder="kimenter@nhnent.com" v-model="input8" class="input-with-select"></el-input>
+          </dd>
+          <dt>이메일</dt>
+          <dd>
+            <el-select v-model="value" placeholder="한국어">
+              <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+              </el-option>
+            </el-select>
+          </dd>
+          <dt>티켓 할당</dt>
+          <dd>
+            <el-radio-group class="type_choose" v-model="radio2">
+              <el-radio-button label="활성화"></el-radio-button>
+              <el-radio-button label="비활성화"></el-radio-button>
+            </el-radio-group>
+          </dd>
+        </dl>
+        <span slot="footer" class="dialog-footer">
+          <el-button type="primary" @click="dialogVisible1 = false">확인</el-button>
+        </span>
+      </el-dialog>
+    </div>
+    <div>
+      <p class="my_description">下面是带表格的popup第二种</p>
+      <el-button type="text" @click="dialogVisible2 = true">点击打开带表格的popup</el-button>
+      <el-dialog custom-class="pop_type2" title="서비스 추가" :visible.sync="dialogVisible2" width="590px" :before-close="handleClose">
+        <dl class="my_information">
+          <dt>서비스 명</dt>
+          <dd>
+            <el-input placeholder="서비스명을 입력하세요." disabled v-model="input4" class="input-with-select"></el-input>
+          </dd>
+          <dt>서비스 ID</dt>
+          <dd>
+            <el-input placeholder="서비스 ID를 입력하세요." v-model="input7" class="input-with-select"></el-input>
+          </dd>
+          <dt>서비스 언어</dt>
+          <dd>
+            <el-select v-model="value" placeholder="언어를 선택하세요.">
+              <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+              </el-option>
+            </el-select>
+          </dd>
+        </dl>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="dialogVisible = false">취소</el-button>
+          <el-button type="primary" @click="dialogVisible2 = false">확인</el-button>
+        </span>
+      </el-dialog>
+    </div>
+    <div>
+      <p class="my_description">下面是带表格的popup第三种</p>
+      <el-button type="text" @click="dialogVisible3 = true">点击打开带表格的popup</el-button>
+      <el-dialog custom-class="pop_type2" title="파일 업로드" :visible.sync="dialogVisible3" width="590px" :before-close="handleClose">
+        <dl class="my_information">
+          <dt>파일 업로드</dt>
+          <dd class="have_two_bt">
+            <el-input placeholder="" v-model="input3" class="input-with-select">
+            </el-input>
+            <el-button slot="append">파일 선택</el-button>
+            <el-button slot="append">경로 생성</el-button>
+          </dd>
+          <dt>파일 경로</dt>
+          <dd>
+            <el-input placeholder="" v-model="input7" class="input-with-select"></el-input>
+          </dd>
+        </dl>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="dialogVisible = false">취소</el-button>
+          <el-button type="primary" @click="dialogVisible3 = false">확인</el-button>
+        </span>
+      </el-dialog>
+    </div>
+    <div>
+      <p class="my_description">下面是带表格的popup第四种表格没有数据</p>
+      <el-button type="text" @click="dialogVisible4 = true">点击打开带表格的popup</el-button>
+      <el-dialog custom-class="pop_type2 padding_bottom" title="상담원 선택" :visible.sync="dialogVisible4" width="590px" :before-close="handleClose">
+        <p class="have_three_inp">
+          <el-input placeholder="김엔터" v-model="input3" class="input-with-select">
+          </el-input>
+          <el-input placeholder="계정" v-model="input3" class="input-with-select">
+          </el-input>
+          <el-input placeholder="이메일" v-model="input3" class="input-with-select">
+          </el-input>
+          <el-button slot="append">검색</el-button>
+        </p>
+        <div class="have-table">검색 결과가 없습니다.</div>
+      </el-dialog>
+    </div>
+    <div>
+      <p class="my_description">下面是带表格的popup第五种表格有数据</p>
+      <el-button type="text" @click="dialogVisible5 = true">点击打开带表格的popup</el-button>
+      <el-dialog custom-class="pop_type2 padding_bottom" title="상담원 선택" :visible.sync="dialogVisible5" width="590px" :before-close="handleClose">
+        <p class="have_three_inp">
+          <el-input placeholder="김엔터" v-model="input3" class="input-with-select">
+          </el-input>
+          <el-input placeholder="계정" v-model="input3" class="input-with-select">
+          </el-input>
+          <el-input placeholder="이메일" v-model="input3" class="input-with-select">
+          </el-input>
+          <el-button slot="append">검색</el-button>
+        </p>
+        <div class="have-table">
+          <el-table :data="tableData" style="width: 100%">
+            <el-table-column prop="date" label="" width="90">
+            </el-table-column>
+            <el-table-column prop="name" label="" width="120">
+            </el-table-column>
+            <el-table-column prop="address" label="">
+            </el-table-column>
+          </el-table>
+        </div>
+      </el-dialog>
+    </div>
   </div>
 </template>
 <script>
@@ -43,8 +179,20 @@ export default {
   props: { 'message': String },
   data () {
     return {
+      radio2: '활성화',
       dialogVisible: false,
+      dialogVisible1: false,
+      dialogVisible2: false,
+      dialogVisible3: false,
+      dialogVisible4: false,
+      dialogVisible5: false,
       input3: '',
+      input4: '',
+      input5: '',
+      input6: '',
+      input7: '',
+      input8: '',
+      input9: '',
       data: [{
         id: 1,
         label: '一级 1',
@@ -83,7 +231,89 @@ export default {
       defaultProps: {
         children: 'children',
         label: 'label'
-      }
+      },
+      options: [{
+        value: '选项1',
+        label: '黄金糕'
+      }, {
+        value: '选项2',
+        label: '双皮奶'
+      }, {
+        value: '选项3',
+        label: '蚵仔煎'
+      }, {
+        value: '选项4',
+        label: '龙须面'
+      }, {
+        value: '选项5',
+        label: '北京烤鸭'
+      }],
+      value: '',
+      tableData: [{
+        date: '김엔터',
+        name: 'nhn_enter',
+        address: 'nhn.enter@nhnent.com'
+      }, {
+        date: '김엔터',
+        name: 'nhn_enter',
+        address: 'nhn.enter@nhnent.com'
+      }, {
+        date: '김엔터',
+        name: 'nhn_enter',
+        address: 'nhn.enter@nhnent.com'
+      }, {
+        date: '김엔터',
+        name: 'nhn_enter',
+        address: 'nhn.enter@nhnent.com'
+      }, {
+        date: '김엔터',
+        name: 'nhn_enter',
+        address: 'nhn.enter@nhnent.com'
+      }, {
+        date: '김엔터',
+        name: 'nhn_enter',
+        address: 'nhn.enter@nhnent.com'
+      }, {
+        date: '김엔터',
+        name: 'nhn_enter',
+        address: 'nhn.enter@nhnent.com'
+      }, {
+        date: '김엔터',
+        name: 'nhn_enter',
+        address: 'nhn.enter@nhnent.com'
+      }, {
+        date: '김엔터',
+        name: 'nhn_enter',
+        address: 'nhn.enter@nhnent.com'
+      }, {
+        date: '김엔터',
+        name: 'nhn_enter',
+        address: 'nhn.enter@nhnent.com'
+      }, {
+        date: '김엔터',
+        name: 'nhn_enter',
+        address: 'nhn.enter@nhnent.com'
+      }, {
+        date: '김엔터',
+        name: 'nhn_enter',
+        address: 'nhn.enter@nhnent.com'
+      }, {
+        date: '김엔터',
+        name: 'nhn_enter',
+        address: 'nhn.enter@nhnent.com'
+      }, {
+        date: '김엔터',
+        name: 'nhn_enter',
+        address: 'nhn.enter@nhnent.com'
+      }, {
+        date: '김엔터',
+        name: 'nhn_enter',
+        address: 'nhn.enter@nhnent.com'
+      }, {
+        date: '김엔터',
+        name: 'nhn_enter',
+        address: 'nhn.enter@nhnent.com'
+      }]
     }
   },
   methods: {
@@ -164,9 +394,183 @@ export default {
 }
 </script>
 <style>
+.pop_type2 .my_information {
+  display: flex;
+  flex-wrap: wrap;
+}
+.pop_type2 .my_information dt {
+  width: 100px;
+  margin-right: 10px;
+  margin-bottom: 8px;
+  color: #333;
+  line-height: 32px;
+  font-size: 13px;
+}
+.pop_type2 .my_information dd {
+  width: calc(100% - 110px);
+  margin-bottom: 8px;
+}
+.pop_type2 .my_information dd .el-input__inner,
+.pop_type2 .my_information dd .el-select {
+  margin-right: 0px;
+  width: 100%;
+}
+.el-select .el-input__inner:focus,
+.el-select .el-input.is-focus .el-input__inner {
+  outline: none;
+  border-color: #dcdfe6;
+}
+.pop_type2 .my_information dd .el-select .el-icon-arrow-up:before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  right: 0px;
+  width: 20px;
+  height: 20px;
+  background: url("../assets/images/ic-arrow-solid-top.svg") no-repeat scroll
+    right 0px center transparent;
+}
+.pop_type2 .my_information dd .el-radio-group .el-radio-button__inner {
+  border-radius: 0px;
+  padding: 0px 10px;
+  line-height: 30px;
+  box-sizing: border-box;
+  font-size: 13px;
+  width: 80px;
+  text-align: center;
+  color: #333;
+}
+.pop_type2
+  .my_information
+  dd
+  .el-radio-group
+  .el-radio-button__orig-radio:checked
+  + .el-radio-button__inner {
+  background-color: #fff;
+  border: 2px solid #6a3ecf;
+  line-height: 28px;
+}
+.el-radio-button:focus:not(.is-focus):not(:active):not(.is-disabled),
+.el-radio-button__orig-radio:checked + .el-radio-button__inner {
+  box-shadow: none;
+}
+.pop_type2 .my_information .el-input.is-disabled .el-input__inner {
+  border-color: #ddd;
+  background-color: #f4f4f4;
+}
+.pop_type2 .my_information dd.have_two_bt {
+  font-size: 0;
+}
+.pop_type2 .my_information dd.have_two_bt .el-input {
+  width: calc(100% - 158px);
+  vertical-align: top;
+}
+.pop_type2 .my_information dd.have_two_bt .el-button {
+  padding: 0px;
+  line-height: 30px;
+  color: #333;
+  font-size: 13px;
+  width: 75px;
+  margin-left: 4px;
+  box-sizing: border-box;
+  border-color: #ddd;
+  background-color: #f9f9f9;
+  border-radius: 0px;
+}
+.pop_type2 .have_three_inp {
+  display: flex;
+  justify-content: space-between;
+}
+.pop_type2 .have_three_inp .el-input {
+  width: 120px;
+  margin-right: 4px;
+}
+.pop_type2 .have_three_inp .el-input:nth-child(3) {
+  width: 210px;
+}
+.pop_type2 .el-dialog__body .have_three_inp .el-input .el-input__inner {
+  height: 32px;
+  width: 100%;
+  padding: 6px 12px;
+  border-radius: 0;
+}
+.pop_type2 .el-dialog__body .have_three_inp .el-button {
+  height: 32px;
+  padding: 0px;
+  width: 48px;
+  text-align: center;
+  line-height: 32px;
+  border-radius: 0;
+  border: 0px;
+  font-size: 13px;
+  color: #fff;
+  background-color: #6a3ecf;
+}
+.pop_type2 .el-dialog__body .have-table {
+  margin-top: 19px;
+  width: 100%;
+  border: 1px solid #ddd;
+  height: 220px;
+  line-height: 220px;
+  text-align: center;
+  box-sizing: content-box;
+  overflow: auto;
+  padding: 0px 18px;
+}
+.pop_type2 .el-dialog__body .have-table .el-table td,
+.pop_type2 .el-dialog__body .have-table .el-table th {
+  padding: 0px 19px;
+  font-size: 13px;
+  height: 40px;
+}
+.pop_type2 .el-dialog__body .have-table .el-table .cell{
+padding: 0;
+}
+.pop_type2 .el-dialog__body .have-table .el-table td:first-child,
+.pop_type2 .el-dialog__body .have-table .el-table th:first-child {
+  padding-left: 0px;
+}
+.pop_type2.padding_bottom {
+  padding-bottom: 35px;
+}
+.el-table__footer-wrapper,
+.el-table__header-wrapper {
+  display: none;
+}
+.pop_type2 .el-dialog__body .have-table .el-table--enable-row-hover .el-table__body tr:hover>td{
+  background-color: #f4efff;
+}
+.pop_type2 .el-dialog__body .have-table {
+  scrollbar-arrow-color: red;
+  scrollbar-face-color: #333;
+  scrollbar-3dlight-color: #666;
+  scrollbar-highlight-color: #666;
+  scrollbar-shadow-color: #999;
+  scrollbar-darkshadow-color: #666;
+  scrollbar-track-color: #666;
+  scrollbar-base-color: #f8f8f8;
+}
+.pop_type2 .el-dialog__body .have-table::-webkit-scrollbar {
+  width: 6px;
+  height: 10px;
+}
+.pop_type2 .el-dialog__body .have-table::-webkit-scrollbar-track {
+  background-color: #fff;
+  border-radius: 2px;
+}
+.pop_type2 .el-dialog__body .have-table::-webkit-scrollbar-thumb {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+}
+.pop_type2 .el-dialog__body .have-table::-webkit-scrollbar-thumb:hover {
+  background-color: #d9d9d9;
+}
+.el-input.is-active .el-input__inner, .el-input__inner:focus{
+  border-color: #C0C4CC;
+}
+</style>
+<style>
 .pop_type2 {
-  min-width: 400px;
-  max-width: 400px;
   box-sizing: border-box;
   border: 0px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -292,6 +696,7 @@ export default {
   font-size: 15px;
   color: #fff;
   border: 0px;
+  border-radius: 2px;
 }
 .pop_type2 .el-dialog__footer .el-button.el-button--default {
   background-color: #aaa;
@@ -306,69 +711,21 @@ export default {
   height: 40px;
   line-height: 40px;
 }
-.el-checkbox__inner:hover {
+.pop_type2 .el-checkbox__inner:hover {
   border-color: #ddd;
 }
-/* .pop_type2 .el-tree .is-expanded .el-tree-node__children .el-checkbox__inner::after{
-  content: "12";
-  top: 50%;
-  left: 3px;
-  width: 6px;
-  height: 0.5px;
-  background-color: #aaa;
-  transform: rotate(0deg) translateY(-50%) scaleY(0.5);
-}
-.pop_type2 .el-tree .el-tree-node .el-tree-node__content .el-checkbox__inner::after{
-content: "+";
-  top: 50%;
-  left: 3px;
-  width: 6px;
-  height: 0.5px;
-  background-color: #aaa;
-  transform: rotate(0deg) translateY(-50%) scaleY(0.5);
-} */
-
-/* .el-checkbox__input.is-checked .el-checkbox__inner::after {
-  content: "";
-  top: 50%;
-  left: 3px;
-  width: 6px;
-  height: 0.5px;
-  background-color: #aaa;
-  transform: rotate(0deg) translateY(-50%) scaleY(0.5);
-} */
-/* .el-checkbox__input.is-indeterminate .el-checkbox__inner::before {
-  content: "";
-  top: 50%;
-  left: 3px;
-  width: 6px;
-  height: 0.5px;
-  background-color: #aaa;
-  transform: rotate(0deg) translateY(-50%) scaleY(0.5);
-} */
-/* .el-checkbox__input.is-indeterminate .el-checkbox__inner::before{
-content: '+';
-    position: static;
-    display: inline-flexbox;
-    background-color: none;
-    height: auto !important;
-    transform: auto;
-} */
-.el-tree-node__content:hover {
+.pop_type2 .el-tree-node__content:hover {
   background-color: #ebe1ff;
 }
-.el-tree-node:focus > .el-tree-node__content {
+.pop_type2 .el-tree-node:focus > .el-tree-node__content {
   background-color: #fff;
   color: #6a3ecf;
 }
-.el-checkbox__input.is-checked .el-checkbox__inner,
-.el-checkbox__input.is-indeterminate .el-checkbox__inner {
+.pop_type2 .el-checkbox__input.is-checked .el-checkbox__inner,
+.pop_type2 .el-checkbox__input.is-indeterminate .el-checkbox__inner {
   background-color: #fff;
   border: 1px solid #ddd;
 }
-/* .el-checkbox__input.is-indeterminate .el-checkbox__inner::before{
-content: '1';
-} */
 .pop_type2
   .el-tree
   .el-tree-node.is-expanded
@@ -401,15 +758,40 @@ content: '1';
   border: 1px solid #ddd;
   transform: scale(1);
 }
-.el-checkbox__inner {
+.pop_type2 .el-checkbox__inner {
   border: none;
 }
-.el-checkbox__inner::after {
+.pop_type2 .el-checkbox__inner::after {
   display: none;
 }
-.el-checkbox__input.is-checked .el-checkbox__inner,
-.el-checkbox__input.is-indeterminate .el-checkbox__inner {
+.pop_type2 .el-checkbox__input.is-checked .el-checkbox__inner,
+.pop_type2 .el-checkbox__input.is-indeterminate .el-checkbox__inner {
   border: none;
+}
+.pop_type2 .el-tree {
+  scrollbar-arrow-color: red;
+  scrollbar-face-color: #333;
+  scrollbar-3dlight-color: #666;
+  scrollbar-highlight-color: #666;
+  scrollbar-shadow-color: #999;
+  scrollbar-darkshadow-color: #666;
+  scrollbar-track-color: #666;
+  scrollbar-base-color: #f8f8f8;
+}
+.pop_type2 .el-tree::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.pop_type2 .el-tree::-webkit-scrollbar-track {
+  background-color: #fff;
+  border-radius: 2px;
+}
+.pop_type2 .el-tree::-webkit-scrollbar-thumb {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+}
+.pop_type2 .el-tree::-webkit-scrollbar-thumb:hover {
+  background-color: #d9d9d9;
 }
 </style>
 <style>
@@ -568,3 +950,47 @@ content: '1';
   margin-top: 4px;
 }
 </style>
+
+
+
+{
+  "pages": [
+    "pages/shishi/shishi",
+    "pages/home/home",
+    "pages/content/content",
+    "pages/index/index"
+
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#E63464",
+    "navigationBarTitleText": "小琳收藏文章",
+    "navigationBarTextStyle": "white",
+    "backgroundColorTop": "#E5465f"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "开始",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/index1.png"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home1.png"
+      },
+      {
+        "pagePath": "pages/content/content",
+        "text": "内容",
+        "iconPath": "images/content.png",
+        "selectedIconPath": "images/content1.png"
+      }
+    ]
+  }
+}
